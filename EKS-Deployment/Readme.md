@@ -50,7 +50,6 @@ authentik-eks-lab/
 Prerequisites
 - Terraform >= 1.0.0
 - AWS CLI configured
-- kubectl
 - helm
 
 Deploy infrastructure
@@ -61,45 +60,29 @@ terraform plan
 terraform apply
 ```
 
-bash
-aws eks update-kubeconfig --name authentik-eks-lab --region us-east-1
-Deploy Authentik
 
-bash
-# Update authentik-values.yaml with secure values
-helm repo add authentik https://charts.goauthentik.io
-helm install authentik authentik/authentik -f authentik-values.yaml
-⚙️ Configuration
-Authentik Configuration
-Update authentik-values.yaml with:
 
-Secure secret_key (50+ characters)
 
-Strong initial_admin_password
+# Velero Backup
 
-Your domain in server.ingress.hosts
+- Automated daily backups of Authentik namespace
 
-Velero Backup
-Automated daily backups of Authentik namespace
+- S3 storage with encryption
 
-S3 storage with encryption
+- EBS volume snapshots
 
-EBS volume snapshots
-
-30-day retention policy
+- 30-day retention policy
 
 ## 📊 Outputs
 After deployment, Terraform will provide:
 
-kubeconfig_command - Command to configure kubectl
+- nginx_ingress_hostname - NLB DNS for ingress
 
-nginx_ingress_hostname - NLB DNS for ingress
-
-velero_bucket_name - S3 bucket for backups
+- velero_bucket_name - S3 bucket for backups
 
 ## 🔧 Management
 Access Authentik
-Get the NLB hostname from outputs
+- Get the NLB hostname from outputs
 
 Configure DNS to point to the NLB
  ```bash
