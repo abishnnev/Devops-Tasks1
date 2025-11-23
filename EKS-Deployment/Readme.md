@@ -99,6 +99,9 @@ After deployment, Terraform will provide:
 - Velero S3 bucket name
 
 - EBS CSI Driver status
+https://github.com/abishnnev/Devops-Tasks/blob/971a897c612da4ebe565f16b2e05f294a35d6c3b/EKS-Deployment/Screenshots/Screenshot%20(146).png
+
+https://github.com/abishnnev/Devops-Tasks/blob/971a897c612da4ebe565f16b2e05f294a35d6c3b/EKS-Deployment/Screenshots/Screenshot%20(145).png
 
 ## 🔧 Management
 Access Authentik
