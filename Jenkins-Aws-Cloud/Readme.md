@@ -147,17 +147,17 @@ https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e4
 ```bash
 terraform init
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/terraform-init.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/9a2eb54cce37a8880e666628432999351a03c3b1/Jenkins-Aws-Cloud/screenshots/terraform-init.JPG
 - 2. Plan
 ```bash
 terraform plan
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/terraform-plan.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/9a2eb54cce37a8880e666628432999351a03c3b1/Jenkins-Aws-Cloud/screenshots/terraform-plan.JPG
 - 3. Apply
 ```bash
 terraform destroy -auto-approve
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/terraform%20apply.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/9a2eb54cce37a8880e666628432999351a03c3b1/Jenkins-Aws-Cloud/screenshots/terraform%20apply.JPG
 ## 🔐 Security Best Practices Followed
 
 - No hard-coded credentials
