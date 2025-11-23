@@ -1,0 +1,95 @@
+# authentik-values.yaml
+authentik:
+  log_level: info
+  secret_key: 
+    secretKeyRef:
+      name: authentik-secrets
+      key: secret-key
+  
+  # Disable embedded services since we're using separate pods
+  postgresql:
+    enabled: false
+  redis:
+    enabled: false
+  
+  # External database configuration
+  config:
+    secret_key: 
+      secretKeyRef:
+        name: authentik-secrets
+        key: secret-key
+    postgresql:
+      host: "postgresql.authentik.svc.cluster.local"
+      port: 5432
+      name: "authentik"
+      username: "authentik"
+      password:
+        secretKeyRef:
+          name: authentik-secrets
+          key: postgresql-password
+    redis:
+      host: "redis-master.authentik.svc.cluster.local"
+      port: 6379
+      password:
+        secretKeyRef:
+          name: authentik-secrets
+          key: redis-password
+      username: ""
+  
+  # Persistence for authentik media files
+  persistence:
+    enabled: true
+    storageClass: ${storage_class}
+    size: 10Gi
+
+postgresql:
+  enabled: true
+  nameOverride: "postgresql"
+  fullnameOverride: "postgresql"
+  postgresqlUsername: "authentik"
+  postgresqlDatabase: "authentik"
+  # Use string password instead of object
+  postgresqlPassword: ""
+  existingSecret: "authentik-secrets"
+  existingSecretKey: "postgresql-password"
+  persistence:
+    enabled: true
+    size: 20Gi
+    storageClass: ${storage_class}
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+redis:
+  enabled: true
+  fullnameOverride: "redis"
+  auth:
+    enabled: true
+    # Use string password instead of object
+    password: ""
+    existingSecret: "authentik-secrets"
+    existingSecretPasswordKey: "redis-password"
+  master:
+    persistence:
+      enabled: true
+      size: 1Gi
+      storageClass: ${storage_class}
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "200m"
+
+service:
+  type: LoadBalancer
+  port: 9000
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: "external"
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "ip"
+    service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
