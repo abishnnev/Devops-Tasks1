@@ -19,27 +19,14 @@ A modular Terraform infrastructure to deploy a production-ready Jenkins server o
 
 ## 📁 Project Structure
 ```bash
-jenkins-infra/
-├── main.tf
-├── variables.tf
-├── outputs.tf
-├── terraform.tfvars.example
-├── modules/
-│   ├── jenkins-server/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   ├── outputs.tf
-│   │   └── user-data.sh
-│   ├── networking/
-│   │   ├── main.tf
-│   │   ├── variables.tf
-│   │   └── outputs.tf
-│   └── ebs-backup/
-│       ├── main.tf
-│       ├── variables.tf
-│       └── outputs.tf
-└── scripts/
-    └── setup-jenkins.sh
+jenkins-terraform/
+├── 📄 README.md                          # Project documentation
+├── 📄 main.tf                            # Main infrastructure (VPC, EC2, EBS, Backup)
+├── 📄 outputs.tf                         # Terraform outputs
+├── 📄 variables.tf                       # Input variables
+├── 📄 terraform.tfvars                   # Variable values (create this file)
+├── 🔧 user-data.sh                       # Jenkins installation and setup script
+└── 📁 .terraform/                        # Terraform state and plugins (ignored in git)
  ```
 ## 🛠️ Technologies Used
 
