@@ -37,14 +37,28 @@ This Terraform project deploys a complete Authentik identity provider solution o
 
 ## 📁 Project Structure
 ```bash
-authentik-eks-lab/
-├── main.tf                 # Core EKS and VPC configuration
-├── variables.tf            # Configurable variables
-├── outputs.tf              # Terraform outputs
-├── ingress-controller.tf   # NGINX ingress setup
-├── velero.tf              # Backup infrastructure
-├── authentik-values.yaml   # Authentik Helm chart values
-└── README.md              # This file
+authentik-eks-terraform/
+├── 📄 README.md                          # Project documentation
+├── 📄 main.tf                            # Main infrastructure (VPC, EKS)
+├── 📄 providers.tf                       # Terraform provider configurations
+├── 📄 variables.tf                       # Input variables with defaults
+├── 📄 outputs.tf                         # Terraform outputs
+├── 📄 locals.tf                          # Local variables and generated passwords
+│
+├── 🔧 Kubernetes Configuration
+│   ├── 📄 kubernetes.tf                  # Authentik namespace, secrets, and Helm release
+│   ├── 📄 k8s-providers.tf               # Kubernetes, Helm, Kubectl providers
+│   ├── 📄 kubeconfig.tf                  # Kubeconfig file generation
+│   ├── 📄 cluster-wait.tf                # Wait for EKS cluster readiness
+│   └── 📄 ebs-csi-driver.tf              # EBS CSI Driver IAM and Helm installation
+│
+├── 🗂️ Application Configuration
+│   └── 📄 authentik-values.yml           # Helm values for Authentik configuration
+│
+├── 💾 Backup & Storage
+│   └── 📄 velero.tf                      # Velero S3 bucket, IAM, and Helm deployment
+│
+└── 📁 .terraform/                        # Terraform state and plugins (ignored in git)
 ```
 ## 🚀 Quick Start
 Prerequisites
@@ -76,9 +90,15 @@ terraform apply
 ## 📊 Outputs
 After deployment, Terraform will provide:
 
-- nginx_ingress_hostname - NLB DNS for ingress
+- EKS Cluster name and endpoint
 
-- velero_bucket_name - S3 bucket for backups
+- Generated admin password for Authentik
+
+- Kubeconfig filename
+
+- Velero S3 bucket name
+
+- EBS CSI Driver status
 
 ## 🔧 Management
 Access Authentik
