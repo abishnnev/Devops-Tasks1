@@ -140,24 +140,24 @@ Retrieve initial admin password:
 ```bash
 docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/9bebedae549d0fb1e1db67f29756bb45b1b26311/Jenkins-Aws-Cloud/jenkins-outputs.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/jenkins-outputs.JPG
 ## ▶️ How to Deploy
 
 - 1. Initialize Terraform
 ```bash
 terraform init
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/63da216de5d1a42bf9a9f9c82c1bcd96ee36b477/Jenkins-Aws-Cloud/terraform-init.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/terraform-init.JPG
 - 2. Plan
 ```bash
 terraform plan
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/9bebedae549d0fb1e1db67f29756bb45b1b26311/Jenkins-Aws-Cloud/terraform-plan.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/terraform-plan.JPG
 - 3. Apply
 ```bash
 terraform destroy -auto-approve
 ```
-https://github.com/abishnnev/Devops-Tasks/blob/9bebedae549d0fb1e1db67f29756bb45b1b26311/Jenkins-Aws-Cloud/terraform%20apply.JPG
+https://github.com/abishnnev/Devops-Tasks/blob/4fb56edf9dab9233219147e91fcb2d8e437b4d16/Jenkins-Aws-Cloud/screenshots/terraform%20apply.JPG
 ## 🔐 Security Best Practices Followed
 
 - No hard-coded credentials
